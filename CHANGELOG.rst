@@ -2,8 +2,8 @@
 Changelog for package tmcl_ros2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.1 (2024-07-15)
+------------------
 * Added support for TMCM-2611
   Added support for TMCM-2611
   Co-Authored-By: Christian Joseph Acar <124771470+CAcarADI@users.noreply.github.com>
