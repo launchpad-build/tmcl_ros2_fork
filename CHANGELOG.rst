@@ -2,8 +2,8 @@
 Changelog for package tmcl_ros2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.2 (2024-11-05)
+------------------
 * Added support for TMCM-1316
 * Contributors: Jamila Macagba
 
