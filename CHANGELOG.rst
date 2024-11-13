@@ -2,8 +2,8 @@
 Changelog for package tmcl_ros2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.3 (2024-11-13)
+------------------
 * Fix handling of incorrect parameter type and update header files to .hpp
 * Contributors: Jamila Macagba
 
