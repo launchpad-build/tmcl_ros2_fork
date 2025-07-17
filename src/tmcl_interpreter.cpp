@@ -82,13 +82,6 @@ bool TmclInterpreter::executeCmd(tmcl_cmd_t cmd, uint8_t type, uint8_t motor, in
   uint8_t rx_msg_sz = 0;
   tmcl_msg_t tmcl_msg;
 
-  // RCLCPP_INFO_STREAM(logger_, "arguments");
-  // RCLCPP_INFO_STREAM(logger_, cmd);
-  // RCLCPP_INFO_STREAM(logger_, type);
-  // RCLCPP_INFO_STREAM(logger_, motor);
-
-
-
   if(interface_enabled_)
   {
     if(tmcl_interface_ == TMCL_INTERFACE_CAN)
@@ -102,17 +95,7 @@ bool TmclInterpreter::executeCmd(tmcl_cmd_t cmd, uint8_t type, uint8_t motor, in
       tmcl_msg.value[1] = (*val & 0x00FF0000) >> 16;
       tmcl_msg.value[2] = (*val & 0x0000FF00) >> 8;
       tmcl_msg.value[3] = (*val & 0x000000FF);
-      if (cmd != 6)
-      {
-        RCLCPP_INFO_STREAM(logger_, "tmcl_msg");
-        RCLCPP_INFO_STREAM(logger_, static_cast<int>(tmcl_msg.type));
-        RCLCPP_INFO_STREAM(logger_, static_cast<int>(motor));
-        RCLCPP_INFO_STREAM(logger_, *val);
-        // for(auto& val : tmcl_msg.value)
-        // {
-        //   RCLCPP_INFO_STREAM(logger_, val);
-        // }
-      }
+
       // Setting cmd, type, motor, value is always needed every call to execute_cmd()
       uint8_t tx_msg[TMCL_MSG_SZ] = {tmcl_msg.cmd, tmcl_msg.type, tmcl_msg.motor, \
         tmcl_msg.value[0], tmcl_msg.value[1], tmcl_msg.value[2], tmcl_msg.value[3]};

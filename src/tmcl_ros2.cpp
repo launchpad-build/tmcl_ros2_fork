@@ -510,13 +510,6 @@ void TmclRos2::tmclCustomCmdCallback(const std::shared_ptr<adi_tmcl::srv::TmcCus
     val = req->value;
     RCLCPP_DEBUG(p_node_->get_logger(), "Setting Axis Parameter");
 
-    RCLCPP_INFO(p_node_->get_logger(),"before calling");
-    RCLCPP_INFO_STREAM(p_node_->get_logger(),static_cast<int>(TMCL_CMD_SAP));
-    RCLCPP_INFO_STREAM(p_node_->get_logger(),static_cast<int>(req->instruction_type));
-    RCLCPP_INFO_STREAM(p_node_->get_logger(),static_cast<int>(motor_num));
-    RCLCPP_INFO_STREAM(p_node_->get_logger(),val);
-
-    
     if(p_tmcl_interpreter_->executeCmd(TMCL_CMD_SAP, req->instruction_type, motor_num, &val))
     {
       res->output = val;
@@ -584,12 +577,6 @@ void TmclRos2::tmclCustomCmdCallback(const std::shared_ptr<adi_tmcl::srv::TmcCus
   {
     val = req->value;
     RCLCPP_INFO(p_node_->get_logger(), "Setting I/0");
-
-    RCLCPP_INFO(p_node_->get_logger(),"before calling");
-    RCLCPP_INFO_STREAM(p_node_->get_logger(),static_cast<int>(TMCL_CMD_SIO));
-    RCLCPP_INFO_STREAM(p_node_->get_logger(),static_cast<int>(req->instruction_type));
-    RCLCPP_INFO_STREAM(p_node_->get_logger(),static_cast<int>(motor_num));
-    RCLCPP_INFO_STREAM(p_node_->get_logger(),val);
 
     if(p_tmcl_interpreter_->executeCmd(TMCL_CMD_SIO, req->instruction_type, motor_num, &val))
     {
