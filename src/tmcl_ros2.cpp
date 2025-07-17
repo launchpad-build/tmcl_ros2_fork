@@ -486,6 +486,11 @@ void TmclRos2::initServiceServer()
   tmcl_ggp_service_server_ = p_node_->create_service<adi_tmcl::srv::TmcGgpAll>\
     (ggp_srv_name, std::bind(&TmclRos2::tmclGgpAllCallback, this, std::placeholders::_1, \
     std::placeholders::_2));
+
+  std::string rfs_srv_name = node_namespace + "/tmcl_rfs_cmd";
+  tmcl_rfs_service_server_ = p_node_->create_service<adi_tmcl::srv::TmcCustomCmd>\
+    (rfs_srv_name, std::bind(&TmclRos2::tmclCustomCmdCallback, this, std::placeholders::_1, \
+    std::placeholders::_2));
 }
 
 void TmclRos2::tmclCustomCmdCallback(const std::shared_ptr<adi_tmcl::srv::TmcCustomCmd::Request> \
@@ -547,6 +552,19 @@ void TmclRos2::tmclCustomCmdCallback(const std::shared_ptr<adi_tmcl::srv::TmcCus
     else
     {
       RCLCPP_ERROR_STREAM(p_node_->get_logger(),"Fail to Get Global Parameter");
+    }
+  }
+  else if(tmcl_custom_cmd_[IDX_RFS] == req->instruction)
+  {
+    RCLCPP_DEBUG(p_node_->get_logger(), "Intiating reference search");
+    if(p_tmcl_interpreter_->executeCmd(TMCL_CMD_RFS, req->instruction_type, motor_num, &val))
+    {
+      res->output = val;
+      res->result= true;
+    }
+    else
+    {
+      RCLCPP_ERROR_STREAM(p_node_->get_logger(),"Fail to initiate reference search");
     }
   }
   else

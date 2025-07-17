@@ -62,6 +62,7 @@ typedef enum
   TMCL_CMD_GAP,               /*   6 - Get axis parameter */
   TMCL_CMD_SGP = 9,           /*   9 - Set global parameter */
   TMCL_CMD_GGP,               /*  10 - Get global parameter */
+  TMCL_CMD_RFS = 13,          /*  13 - Start Reference Search */
   TMCL_CMD_APPGFWV = 136,     /* 136 - Get firmware version */
   TMCL_CMD_MAX                /* This should not be used */
 } tmcl_cmd_t;
