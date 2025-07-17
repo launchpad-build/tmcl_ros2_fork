@@ -81,11 +81,17 @@ bool TmclInterpreter::executeCmd(tmcl_cmd_t cmd, uint8_t type, uint8_t motor, in
   uint32_t rx_msg_id = 0;
   uint8_t rx_msg_sz = 0;
   tmcl_msg_t tmcl_msg;
+  RCLCPP_INFO_STREAM(logger_, "HELLO 1");
+  RCLCPP_INFO_STREAM(logger_, cmd);
+
+
 
   if(interface_enabled_)
   {
     if(tmcl_interface_ == TMCL_INTERFACE_CAN)
     {
+      RCLCPP_INFO_STREAM(logger_, interface_enabled_);
+
       tmcl_msg.tx_id = tmcl_cfg_.tx_id;
       tmcl_msg.rx_id = tmcl_cfg_.rx_id;
       tmcl_msg.cmd = cmd;
@@ -98,6 +104,7 @@ bool TmclInterpreter::executeCmd(tmcl_cmd_t cmd, uint8_t type, uint8_t motor, in
       // Setting cmd, type, motor, value is always needed every call to execute_cmd()
       uint8_t tx_msg[TMCL_MSG_SZ] = {tmcl_msg.cmd, tmcl_msg.type, tmcl_msg.motor, \
         tmcl_msg.value[0], tmcl_msg.value[1], tmcl_msg.value[2], tmcl_msg.value[3]};
+      std::cout<<tx_msg<<std::endl;
       auto start_time = std::chrono::system_clock::now();
       auto end_time = start_time;
 
