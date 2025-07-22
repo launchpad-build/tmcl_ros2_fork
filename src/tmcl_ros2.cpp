@@ -562,7 +562,7 @@ void TmclRos2::tmclCustomCmdCallback(const std::shared_ptr<adi_tmcl::srv::TmcCus
   }
   else if(tmcl_custom_cmd_[IDX_RFS] == req->instruction)
   {
-    RCLCPP_INFO(p_node_->get_logger(), "Intiating reference search");
+    RCLCPP_INFO_STREAM(p_node_->get_logger(), "Setting reference search to " << req->instruction);
     if(p_tmcl_interpreter_->executeCmd(TMCL_CMD_RFS, req->instruction_type, motor_num, &val))
     {
       res->output = val;

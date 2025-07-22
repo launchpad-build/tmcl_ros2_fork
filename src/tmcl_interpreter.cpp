@@ -99,11 +99,6 @@ bool TmclInterpreter::executeCmd(tmcl_cmd_t cmd, uint8_t type, uint8_t motor, in
       // Setting cmd, type, motor, value is always needed every call to execute_cmd()
       uint8_t tx_msg[TMCL_MSG_SZ] = {tmcl_msg.cmd, tmcl_msg.type, tmcl_msg.motor, \
         tmcl_msg.value[0], tmcl_msg.value[1], tmcl_msg.value[2], tmcl_msg.value[3]};
-      if (cmd != 6)
-      {      
-        RCLCPP_INFO_STREAM(logger_, "TX_MESSAGE");
-        RCLCPP_INFO_STREAM(logger_, tx_msg);
-      }
       auto start_time = std::chrono::system_clock::now();
       auto end_time = start_time;
 
