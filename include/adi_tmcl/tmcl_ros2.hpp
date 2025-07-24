@@ -39,6 +39,8 @@ private:
   rclcpp::Service<adi_tmcl::srv::TmcCustomCmd>::SharedPtr tmcl_custom_cmd_service_server_;
   rclcpp::Service<adi_tmcl::srv::TmcGapAll>::SharedPtr tmcl_gap_service_server_;
   rclcpp::Service<adi_tmcl::srv::TmcGgpAll>::SharedPtr tmcl_ggp_service_server_;
+  rclcpp::Service<adi_tmcl::srv::TmcCustomCmd>::SharedPtr tmcl_rfs_service_server_;
+  rclcpp::Service<adi_tmcl::srv::TmcCustomCmd>::SharedPtr tmcl_sio_service_server_;
   rclcpp::node_interfaces::OnSetParametersCallbackHandle::SharedPtr p_param_callback_handle_;
 
   uint32_t module_number_;
@@ -114,7 +116,9 @@ typedef enum
   IDX_SAP = 0,
   IDX_GAP,
   IDX_SGP,
-  IDX_GGP
+  IDX_GGP,
+  IDX_RFS,
+  IDX_SIO
 }tmcl_custom_cmd_lut_t;
 
 /* Custom Service Server Commands */
@@ -122,7 +126,9 @@ static const std::vector<std::string> tmcl_custom_cmd_ = {
   "SAP",
   "GAP",
   "SGP",
-  "GGP"
+  "GGP",
+  "RFS",
+  "SIO"
 };
 
 

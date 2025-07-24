@@ -95,6 +95,7 @@ bool TmclInterpreter::executeCmd(tmcl_cmd_t cmd, uint8_t type, uint8_t motor, in
       tmcl_msg.value[1] = (*val & 0x00FF0000) >> 16;
       tmcl_msg.value[2] = (*val & 0x0000FF00) >> 8;
       tmcl_msg.value[3] = (*val & 0x000000FF);
+
       // Setting cmd, type, motor, value is always needed every call to execute_cmd()
       uint8_t tx_msg[TMCL_MSG_SZ] = {tmcl_msg.cmd, tmcl_msg.type, tmcl_msg.motor, \
         tmcl_msg.value[0], tmcl_msg.value[1], tmcl_msg.value[2], tmcl_msg.value[3]};

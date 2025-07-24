@@ -3,8 +3,8 @@
 <package format="3">
   <name>adi_tmcl</name>
   <version>2.0.3</version>
-  <description>The adi_tmcl ROS2 package</description>
-  <maintainer email="ROS@analog.com">Analog Devices</maintainer>
+  <description>A fork of the adi_tmcl ROS2 package</description>
+  <maintainer email="hsardinha@launchpad.build"></maintainer>
   <license>BSD 3-Clause</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
