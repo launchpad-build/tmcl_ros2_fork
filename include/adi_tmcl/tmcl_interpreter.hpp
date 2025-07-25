@@ -9,7 +9,7 @@
 #include <future>
 #include <chrono>
 #include <vector>
-
+#include <rclcpp/rclcpp.hpp>
 #include "adi_tmcl/socket_can_wrapper.hpp"
 
 /** A TMCL Tx/Rx format will always be lke the following:
